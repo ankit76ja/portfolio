@@ -1,10 +1,20 @@
 import { Mail, Person } from '@material-ui/icons';
-import React from 'react';
+import React, { useState } from 'react';
 import './topbar.scss';
+import MenuIcon from '@material-ui/icons/Menu';
+import CloseIcon from '@material-ui/icons/Close';
 
 export const Topbar = () => {
+    const [menuState, setMenuState] = useState(false);
+
+    const getClassName = () => {
+        if(menuState)
+            return 'topbar active';
+        return 'topbar';
+    }
+    
     return (
-        <div className="topbar">
+        <div className={getClassName()}>
             <div className="wrapper">
                 <div className="left">
                     <a className="Intro" href="#intro">Intro</a>
@@ -18,7 +28,14 @@ export const Topbar = () => {
                     </div>
                 </div>
                 <div className="right">
-                    <h3>hamburger</h3>
+                    <div className="hamburger" onClick={() => setMenuState(!menuState)}>
+                        <span className="line1"></span>
+                        <span className="line2"></span>
+                        <span className="line3"></span>
+                    </div>
+                    {/* {menuState ? 
+                    <CloseIcon className="icon" fontSize="large" onClick={() => setMenuState(!menuState)}/>:
+                    <MenuIcon className="icon" fontSize="large" onClick={() => setMenuState(!menuState)}/>} */}
                 </div>
             </div>
         </div>

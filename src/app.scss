@@ -2,10 +2,10 @@
   height: 100vh;
   .section {
     width: 100%;
-    height: calc(100vh - 70px);
+    height: calc(100vh - 5em);
     background-color: lightcyan;
     position: relative;
-    top: 70px;
+    top: 5em;
     scroll-behavior: smooth;
     scroll-snap-type: y mandatory;
     scrollbar-width: none;
@@ -14,7 +14,7 @@
     }
     > * {
       width: 100vw;
-      height: calc(100vh - 70px);
+      height: calc(100vh - 5em);
       scroll-snap-align: start;
     }
   }

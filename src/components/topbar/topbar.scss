@@ -1,41 +1,92 @@
 @import "./../../global.scss";
 
 .topbar {
-  width: 100%;
-  height: 70px;
   background-color: white;
-  color: $mainColor;
+  color: $mainColor !important;
   position: fixed;
   top: 0;
   overflow-y: hidden;
   z-index: 2;
-}
-.wrapper {
-  padding-top: 10px;
-  padding-left: 30px;
-  display: flex;
-  align-items: center;
-
-  .left {
+  width: 100%;
+  height: 5em;
+  transition: all 1s ease;
+  .wrapper {
+    padding-top: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
     display: flex;
     align-items: center;
-    .Intro {
-      font-size: 35px;
-      text-decoration: none;
-      color: black;
-      font-weight: 700;
-    }
-    .container {
-      position: relative;
-      left: 15%;
-      font-weight: 300;
+    width: 100%;
+    .left {
       display: flex;
-      margin-left: 10px;
-      justify-content: center;
-
+      align-items: center;
+      width: 90%;
+      .Intro {
+        font-size: 2.5em;
+        font-weight: 700;
+        width: 20%;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      .container {
+        font-weight: 500;
+        display: flex;
+        margin-left: 1.2em;
+        font-size: 0.9em;
+        justify-content: center;
+        letter-spacing: 0.1em;
+        .icon {
+          position: relative;
+          bottom: 2px;
+        }
+      }
+    }
+    .right {
+      .hamburger {
+        height: 25px;
+        width: 32px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        cursor: pointer;
+        overflow-y: hidden;
+        span {
+          height: 3px;
+          width: 100%;
+          background-color: $mainColor;
+          transform-origin: left;
+          transition: transform 2s ease;
+        }
+      }
       .icon {
-        position: relative;
-        bottom: 2px;
+        float: right;
+      }
+    }
+  }
+  &.active {
+    background-color: $mainColor !important;
+    color: white !important;
+    .wrapper {
+      .right {
+        .hamburger {
+          width: 24px;
+          overflow-y: hidden;
+          span {
+            &:first-child {
+              background-color: white;
+              transform: rotate(45deg);
+            }
+            &:nth-child(2) {
+              opacity: 0;
+            }
+            &:last-child {
+              background-color: white;
+              transform: rotate(-45deg);
+            }
+          }
+        }
       }
     }
   }
