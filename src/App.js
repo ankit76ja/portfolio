@@ -4,11 +4,17 @@ import { Works } from './components/works/Works';
 import { Portfolio } from './components/portfolio/Portfolio';
 import { Testimonials } from './components/testimonials/Testimonials';
 import { Contacts } from './components/Contacts/Contacts';
+import {Menu } from './components/menu/Menu';
 import './app.scss';
+import { useState } from 'react';
 function App() {
+
+  const [menuState, setMenuState] = useState(false);
+
   return (
     <div className="app">
-      <Topbar/>
+      <Topbar menuState= {menuState} setMenuState={setMenuState}/>
+      <Menu menuState= {menuState} setMenuState={setMenuState}/>
       <div className="section">
         <Intro/>
         <Portfolio/>

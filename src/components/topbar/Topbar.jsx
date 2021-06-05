@@ -4,9 +4,9 @@ import './topbar.scss';
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 
-export const Topbar = () => {
-    const [menuState, setMenuState] = useState(false);
+export const Topbar = ({menuState,setMenuState}) => {
 
+    
     const getClassName = () => {
         if(menuState)
             return 'topbar active';
